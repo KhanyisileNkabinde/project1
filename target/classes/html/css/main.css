@@ -1,0 +1,133 @@
+body {
+    box-sizing: border-box;
+    margin: 1em;
+    font-family: "Lucida Console", Courier New, monospace;;
+    background-color: #ffffff;
+    width: 90%;
+    padding: 1em;
+    display: inline-block;
+}
+h1{
+   font-size: Large
+   font-family: "Lucida Console", Courier New, monospace;;
+   color: ;#b5b5b5
+}
+h2{
+    color: #d1981e;
+}
+p{
+   color: #d1981e;
+}
+label{
+    color: #d1981e;
+}
+head{
+    color: #5b252d;
+}
+form {
+  padding: 20px;
+  width: 33%;
+  border-radius: 10px;
+  background-color: #ffffff;
+}
+
+form.inline {
+  padding: 0;
+  width:33%;
+  background-color #ffffff;
+}
+
+input.inline[type=submit] {
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 4px;
+  margin: 2px;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+input {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #9a4c68;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  background-color: #e49756;
+  color: #5b305a;
+  padding: 14px 40px;
+  margin: 8px 0;
+  border: 2px solid #e49756;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+input[type=submit]:hover {
+  background-color: white;
+}
+
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 2em;
+}
+
+nav a {
+    display: block;
+    padding: 5px 15px;
+    text-align: center;
+    color: #464141;
+}
+
+nav a:hover {
+    background-color: #e49756;
+    color: #ffffff;
+}
+
+table {
+    table-layout: fixed;
+    width: 80%;
+    border-collapse: collapse;
+    margin-top: 1em;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1)
+}
+
+td {
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #142d4c;
+}
+th {
+    padding: 1em;
+    text-align: left;
+    text-decoration: underline;
+    background-color: #e49756;
+    color: black;
+}
+
+tfoot {
+    border-top: 1px solid black;
+    font-size: Medium;
+    font-weight: bold;
+}
+
+div.error {
+    border: 1px solid #888;
+    padding: 20px;
+    margin: 20;
+    color: red;
+    width: 60%;
+}
+
+div.stacktrace {
+    font-size: small;
+    font-family: "Lucida Console", Courier New, monospace;;
+}

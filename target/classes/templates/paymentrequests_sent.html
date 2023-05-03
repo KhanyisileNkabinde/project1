@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html
+        xmlns:th="http://www.thymeleaf.org"
+        xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+        layout:decorate="~{/layout.html}">
+<head>
+    <meta charset="UTF-8">
+    <title>WeShare</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lucida Console">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+<div layout:fragment="contents">
+    <section class="paymentSent">
+        <h2>People that owe me</h2>
+        <p id="no_payment_requests_sent" th:if="${#lists.isEmpty(payment)}">Nobody owes you anything!</p>
+        <div id="payment" th:unless="${#lists.isEmpty(payment)}">
+        <table>
+            <thead>
+            <tr>
+                <th>Who</th>
+                <th>What</th>
+                <th>Due in(days)</th>
+                <th>How Much</th>
+            </tr>
+            </thead>
+            <tbody th:each="payment: ${payment}">
+            <td th:text="${payment.personWhoShouldPayBack.getName()}" />
+            <td th:text="${payment.description}" />
+            <td th:text="${payment.dueDate.getDayOfMonth() - payment.expense.date.getDayOfMonth()}" />
+            <td th:text="${payment.amountToPay}" />
+            </tbody>
+        </table>
+
+            <table>
+                <tfoot>
+                    <tr>
+                        <td>Total Unpaid</td>
+                        <td></td>
+                        <td></td>
+                        <td th:text="${grand_total}"></td>
+                    </tr>
+                </tfoot>
+            </table>
+<!--        <p id="grand_total" th:text="${grand_total}"></p>-->
+        </div>
+    </section>
+
+</div>
+</body>
+
+</html>
+
+</html>

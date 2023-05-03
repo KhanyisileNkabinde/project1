@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html
+        xmlns:th="http://www.thymeleaf.org"
+        xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+        layout:decorate="~{/layout.html}">
+
+<head>
+    <meta charset="UTF-8">
+    <title>WeShare</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lucida Console">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+<div layout:fragment="contents">
+
+    <section class="expenseList">
+
+        <h2>My Expenses</h2>
+        <a href="/newexpense" id="add_expense">Add a new expense</a>
+        <p id="no_expenses" th:if="${#lists.isEmpty(expenses)}">You don't have any expenses!</p>
+
+        <div id="expenses" th:unless="${#lists.isEmpty(expenses)}">
+
+                <table >
+                    <tr>
+                        <th>When</th>
+                        <th>What</th>
+                        <th>Amount Spent</th>
+                        <th>Payments Request</th>
+                        <th>Payments Received</th>
+                        <th>Nett Expense</th>
+                    </tr>
+                    <th:block th:each="expense: ${expenses}">
+                    <tr>
+                        <td>
+
+                            <p><span th:id="'date_' +${expense.id}" th:text="${expense.date}">05/09/2022</span></p>
+                        </td>
+                        <td>
+                            <a  th:id="'description_' +${expense.id}"  th:href="'/payment_request?expenseId=' +*{expense.getId}"><span th:text="${expense.description}">05/09/2022</span></a>
+                        </td>
+                        <td>
+                            <p><span   th:id="'amount_' +${expense.id}"  th:text="${expense.amount}">ZAR 0.00</span></p>
+                        </td>
+                        <td>
+                            <p><span th:id="paymentrequests_sent" th:text="${expense.totalAmountOfPaymentsRequested}">R50</span></p>
+                        </td>
+
+
+                        <td>ZAR 0.00</td>
+                        <td>ZAR 0.00</td>
+                    </tr>
+
+                 </th:block>
+                    <tfoot>
+
+                        <td>Total Expenses</td>
+                        <td id="grand_total"></td>
+
+                    </tfoot>
+                </table>
+
+
+        </div>
+    </section>
+</div>
+</body>
+
+</html>

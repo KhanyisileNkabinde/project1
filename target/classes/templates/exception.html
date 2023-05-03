@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html
+        xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+        layout:decorate="~{/layout.html}">
+
+<head>
+    <meta charset="UTF-8">
+    <title>WeShare</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lucida Console">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+<div layout:fragment="contents">
+    <h2>Ooops! Something bad happened</h2>
+    <p>You should probably go back and try again.
+    And if that doesn't work, hold your breath and call a friend.</p>
+
+    <h3>This is what happened</h3>
+    <div class="error" th:text="${exception.message}"></div>
+    <h4>The fine print</h4>
+    <div class="stacktrace" th:utext="${stacktrace}"></div>
+</div>
+</body>
+
+</html>

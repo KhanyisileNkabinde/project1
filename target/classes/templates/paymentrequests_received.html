@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html
+        xmlns:th="http://www.thymeleaf.org"
+        xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+        layout:decorate="~{/layout.html}">
+<head>
+    <meta charset="UTF-8">
+    <title>WeShare</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lucida Console">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+<div layout:fragment="contents">
+    <section class="paymentrequests_received">
+        <h1>People that owe you</h1>
+        <p id="no_payment_requests_received" th:if="${#lists.isEmpty(expense)}">You don't owe anyone anything!</p>
+
+
+        <div id="expenses" th:unless="${#lists.isEmpty(expense)}">
+
+            <table >
+                <tr>
+                    <th>Who</th>
+                    <th>What</th>
+                    <th>Due in(days)</th>
+                    <th>How much</th>
+                </tr>
+                <th:block th:each="expense: ${expenses}">
+                    <tr>
+                        <td>who????</td>
+                        <td>
+                            <p th:id="'description_' +${expense.id}"  th:href="'/payment_request?expenseId=' +*{expense.getId}"><span th:text="${expense.description}">05/09/2022</span></p>
+                        </td>
+                        <td>
+                            <p><span th:id="'date_' +${expense.id}" th:text="${expense.date}">05/09/2022</span></p>
+                        </td>
+                        <td>
+                            <p><span   th:id="'amount_' +${expense.id}"  th:text="${expense.amount}">ZAR 0.00</span></p>
+                        </td>
+
+
+                    </tr>
+
+                </th:block>
+                <tfoot>
+
+                <td>Total Unpaid3</td>
+                <td id="grand_total"></td>
+
+                </tfoot>
+            </table>
+
+
+        </div>
+    </section>
+</div>
+    </section>
+</div>
+</body>
